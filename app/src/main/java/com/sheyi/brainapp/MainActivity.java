@@ -19,8 +19,6 @@ public class MainActivity extends AppCompatActivity {
     Button button1;
     Button button2;
     Button button3;
-
-
     ArrayList<Integer> answers = new ArrayList<Integer>();
     int locationOfCorrectAnswer;
     int numberOfQuestions=0;
