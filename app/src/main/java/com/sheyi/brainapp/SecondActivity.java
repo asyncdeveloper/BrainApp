@@ -18,8 +18,6 @@ public class SecondActivity extends AppCompatActivity {
         String questions = intent.getStringExtra("questionsAnswered");
         resultTextView.setText("Your Score is "+ score + "/" + questions);
     }
-
-
     public void goBack(View view){
         Intent intent = new Intent(getApplicationContext(),MainActivity.class);
         startActivity(intent);
