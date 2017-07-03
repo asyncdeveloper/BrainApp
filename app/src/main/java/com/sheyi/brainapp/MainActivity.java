@@ -47,9 +47,19 @@ public class MainActivity extends AppCompatActivity {
     }
 
     public void start(View view){
-        startButton.setVisibility(View.INVISIBLE);
-        gameRelativeLayout.setVisibility(RelativeLayout.VISIBLE);
-        playAgain();
+        new CountDownTimer(3100,1000){
+            @Override
+            public void onTick(long millisUntilFinished) {
+                String currentSecond =String.valueOf(millisUntilFinished/1000);
+                startButton.setText(currentSecond);
+            }
+            @Override
+            public void onFinish() {
+                startButton.setVisibility(View.INVISIBLE);
+                gameRelativeLayout.setVisibility(RelativeLayout.VISIBLE);
+                playAgain();
+            }
+        }.start();
     }
 
     public void chooseAnswer(View view){
@@ -91,7 +101,6 @@ public class MainActivity extends AppCompatActivity {
         button2.setText(Integer.toString(answers.get(2)));
         button3.setText(Integer.toString(answers.get(3)));
     }
-
 
     public void playAgain(){
         score = 0;
