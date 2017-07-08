@@ -8,10 +8,11 @@
         <item name="colorAccent">@color/colorAccent</item>
     </style>
 
-    <style name="mytheme" parent="Theme.AppCompat.Light.NoActionBar" >
+    <style name="mytheme" parent="Theme.AppCompat.NoActionBar" >
         <item name="colorPrimary">@android:color/darker_gray</item>
         <item name="colorPrimaryDark">@android:color/background_dark</item>
-        <item name="android:textColorPrimary">?attr/colorPrimary</item>
+        <item name="android:textColorPrimary">?attr/colorPrimaryDark</item>
+        <item name="android:colorBackground">@color/colorPrimaryDark</item>
     </style>
 
     <style name="Theme.AppTheme.NoActionBar" parent="Theme.AppCompat.NoActionBar" />

@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/activity_second"
     android:layout_width="match_parent"
@@ -7,39 +8,49 @@
     tools:context="com.sheyi.brainapp.SecondActivity">
 
 
-    <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:id="@+id/resultTextView"
-        tools:ignore="HardcodedText,NotSibling"
-        android:textSize="30sp"
-        android:textColor="@android:color/background_dark"
-        android:textAlignment="center"
-        android:fontFamily="sans-serif-smallcaps"
-        android:textAllCaps="true"
-        android:layout_alignParentTop="true"
-        android:layout_alignParentEnd="true"
-        android:textStyle="normal|bold"
-        android:paddingTop="15dp"
-        android:paddingBottom="15dp"
-        android:layout_alignParentStart="true" />
-
     <Button
         android:text="@string/playAgainTitle"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:id="@+id/playAgainButton"
-        android:textSize="35sp"
+        android:textSize="30sp"
         android:onClick="goBack"
         android:visibility="visible"
         android:background="@android:color/holo_blue_bright"
         android:fadingEdge="horizontal|vertical"
-        android:fontFamily="serif"
-        android:textColor="@android:color/background_dark"
-        android:paddingBottom="40dp"
-        android:padding="50dp"
+        android:textColor="@android:color/background_light"
         android:textAlignment="center"
         android:layout_alignParentBottom="true"
-        android:layout_centerHorizontal="true"
-        android:layout_marginBottom="21dp" />
+        android:layout_alignParentStart="true"
+        android:layout_alignParentEnd="true"
+        android:padding="25dp"
+        android:textStyle="normal|bold"
+        android:fontFamily="casual" />
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/resultTextView"
+        tools:ignore="HardcodedText,NotSibling"
+        android:textSize="30sp"
+        android:textColor="@android:color/holo_blue_bright"
+        android:textAlignment="center"
+        android:fontFamily="casual"
+        android:textAllCaps="true"
+        android:textStyle="normal|bold"
+        android:paddingTop="20dp"
+        android:paddingBottom="20dp"
+        android:layout_centerVertical="true"
+        android:layout_alignParentStart="true" />
+
+    <ImageView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/imageView"
+        android:layout_marginBottom="26dp"
+        tools:ignore="ContentDescription"
+        android:scaleType="centerInside"
+        android:layout_above="@+id/resultTextView"
+        android:layout_centerHorizontal="true" />
+
 </RelativeLayout>

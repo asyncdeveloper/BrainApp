@@ -1,9 +1,10 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
 
-    <style name="mytheme" parent="Theme.AppCompat.Light.NoActionBar">
+    <style name="mytheme" parent="Theme.AppCompat.NoActionBar">
         <item name="colorPrimary">@android:color/darker_gray</item>
         <item name="colorPrimaryDark">@android:color/background_dark</item>
-        <item name="android:textColorPrimary">?android:attr/colorPrimaryDark</item>
+        <item name="android:textColorPrimary">?attr/colorPrimaryDark</item>
+        <item name="android:colorBackground">@color/colorPrimaryDark</item>
     </style>
 </resources>

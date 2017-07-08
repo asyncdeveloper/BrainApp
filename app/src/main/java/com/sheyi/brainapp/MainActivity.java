@@ -6,6 +6,7 @@ import android.os.CountDownTimer;
 import android.support.v7.app.AppCompatActivity;
 import android.view.View;
 import android.widget.Button;
+import android.widget.GridLayout;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
 
@@ -27,23 +28,22 @@ public class MainActivity extends AppCompatActivity {
     TextView scoreTextView;
     TextView timerTextView;
     RelativeLayout gameRelativeLayout;
-
+    GridLayout gridLayout;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
-
+        gridLayout = (GridLayout)findViewById(R.id.gridLayout);
         gameRelativeLayout = (RelativeLayout) findViewById(R.id.gameRelativeLayout);
         startButton = (Button)findViewById(R.id.startButton);
         button  = (Button)findViewById(R.id.button);
         button1 = (Button)findViewById(R.id.button1);
         button2 = (Button)findViewById(R.id.button2);
         button3 = (Button)findViewById(R.id.button3);
-        sumTextView = (TextView)findViewById(R.id.sumTextView);
+        sumTextView    = (TextView)findViewById(R.id.sumTextView);
         resultTextView = (TextView)findViewById(R.id.resultTextView);
-        scoreTextView = (TextView)findViewById(R.id.scoreTextView);
-        timerTextView = (TextView)findViewById(R.id.timerTextView);
-
+        scoreTextView  = (TextView)findViewById(R.id.scoreTextView);
+        timerTextView  = (TextView)findViewById(R.id.timerTextView);
     }
 
     public void start(View view){
@@ -52,6 +52,7 @@ public class MainActivity extends AppCompatActivity {
             public void onTick(long millisUntilFinished) {
                 String currentSecond =String.valueOf(millisUntilFinished/1000);
                 startButton.setText(currentSecond);
+                startButton.setClickable(false);
             }
             @Override
             public void onFinish() {
