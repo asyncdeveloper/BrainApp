@@ -1,6 +1,8 @@
 <resources>
     <string name="app_name">Brain App</string>
     <string name="playAgainTitle">Play Again ?</string>
-    <string name="action_settings">+</string>
     <string name="second_activity">Second Activity</string>
+    <string name="ten_seconds">10s</string>
+    <string name="twenty_seconds">20s</string>
+    <string name="thirty_seconds">30s</string>
 </resources>

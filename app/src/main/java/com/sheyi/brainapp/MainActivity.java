@@ -1,9 +1,12 @@
 package com.sheyi.brainapp;
 
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.os.CountDownTimer;
 import android.support.v7.app.AppCompatActivity;
+import android.view.Menu;
+import android.view.MenuItem;
 import android.view.View;
 import android.widget.Button;
 import android.widget.GridLayout;
@@ -29,10 +32,12 @@ public class MainActivity extends AppCompatActivity {
     TextView timerTextView;
     RelativeLayout gameRelativeLayout;
     GridLayout gridLayout;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+
         gridLayout = (GridLayout)findViewById(R.id.gridLayout);
         gameRelativeLayout = (RelativeLayout) findViewById(R.id.gameRelativeLayout);
         startButton = (Button)findViewById(R.id.startButton);
@@ -44,6 +49,42 @@ public class MainActivity extends AppCompatActivity {
         resultTextView = (TextView)findViewById(R.id.resultTextView);
         scoreTextView  = (TextView)findViewById(R.id.scoreTextView);
         timerTextView  = (TextView)findViewById(R.id.timerTextView);
+    }
+
+    public boolean onOptionsItemSelected(MenuItem item){
+        RelativeLayout mainView = (RelativeLayout) findViewById(R.id.activity_main);
+        switch (item.getItemId()){
+            case R.id.menu_ten_seconds:
+                if(item.isChecked())
+                    item.setCheckable(false);
+                else
+                    item.setCheckable(true);
+                setDuration(10000);
+                return true;
+
+            case R.id.menu_twenty_seconds:
+                if(item.isChecked())
+                    item.setCheckable(false);
+                else
+                    item.setCheckable(true);
+                setDuration(20000);
+                return true;
+
+            case R.id.menu_thirty_seconds:
+                if(item.isChecked())
+                    item.setCheckable(false);
+                else
+                    item.setCheckable(true);
+                setDuration(30000);
+                return true;
+            default:
+                return super.onOptionsItemSelected(item);
+        }
+    }
+
+    public  boolean onCreateOptionsMenu(Menu menu){
+        getMenuInflater().inflate(R.menu.menu_main,menu);
+        return true;
     }
 
     public void start(View view){
@@ -106,10 +147,12 @@ public class MainActivity extends AppCompatActivity {
     public void playAgain(){
         score = 0;
         numberOfQuestions=0;
-        timerTextView.setText("30s");
+        int duration = Integer.parseInt(String.valueOf(getDuration()));
+        timerTextView.setText(duration+"s");
         scoreTextView.setText("0/0");
         generateQuestion();
-        new CountDownTimer(30100,1000){
+        duration+=100;
+        new CountDownTimer(duration,1000){
             @Override
             public void onTick(long millisUntilFinished) {
                 timerTextView.setText(String.valueOf(millisUntilFinished/1000)+"s");
@@ -124,7 +167,16 @@ public class MainActivity extends AppCompatActivity {
         }.start();
     }
 
+    private int getDuration(){
+        SharedPreferences sharedPreferences  = getSharedPreferences( "Duration",MODE_PRIVATE);
+        return sharedPreferences.getInt("duration",30000);
+    }
 
+    public void setDuration(int duration){
+        SharedPreferences sharedPreferences  = getSharedPreferences( "Duration",MODE_PRIVATE);
+        SharedPreferences.Editor editor = sharedPreferences.edit();
+        editor.putInt("duration",duration);
+        editor.apply();
+    }
 
 }
-
